@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金桥焊材 - 专业经销商</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Font Awesome 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E40AF', // 深蓝色作为主色调
+            secondary: '#3B82F6', // 亮蓝色作为辅助色
+            neutral: '#F3F4F6', // 浅灰色作为背景色
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .transition-custom {
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 overflow-x-hidden">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-2">
+          <span class="text-primary text-3xl"><i class="fa fa-welding-bridge"></i></span>
+          <span class="text-xl font-bold text-primary">金桥焊材</span>
+        </a>
+        
+        <!-- 桌面端导航 -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="font-medium text-gray-700 hover:text-primary transition-custom">首页</a>
+          <a href="#products" class="font-medium text-gray-700 hover:text-primary transition-custom">产品中心</a>
+          <a href="#about" class="font-medium text-gray-700 hover:text-primary transition-custom">关于我们</a>
+          <a href="#contact" class="font-medium text-gray-700 hover:text-primary transition-custom">联系我们</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fa fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="#home" class="block py-2 text-gray-700 hover:text-primary transition-custom">首页</a>
+        <a href="#products" class="block py-2 text-gray-700 hover:text-primary transition-custom">产品中心</a>
+        <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition-custom">关于我们</a>
+        <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition-custom">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区 -->
+  <section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-to-br from-blue-50 to-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-10 lg:mb-0">
+          <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-gray-900 leading-tight text-shadow mb-4">
+            专业<span class="text-primary">焊材</span>解决方案
+          </h1>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl">
+            作为金桥焊材的授权经销商，我们提供高品质的焊接材料和专业的技术支持，满足您的各种焊接需求。
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#products" class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-custom text-center">
+              浏览产品
+            </a>
+            <a href="#contact" class="px-8 py-3 border border-primary text-primary hover:bg-primary/5 font-medium rounded-lg transition-custom text-center">
+              联系我们
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-1/2 flex justify-center">
+          <img src="https://picsum.photos/id/318/800/600" alt="金桥焊材产品展示" class="rounded-xl shadow-lg max-w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品中心 -->
+  <section id="products" class="py-16 md:py-24 bg-neutral">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-gray-900 mb-4">产品中心</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          我们提供金桥焊材全系列产品，包括焊条、焊丝、焊剂等，适用于各种焊接工艺和材料。
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 产品卡片 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-custom group">
+          <div class="h-56 overflow-hidden">
+            <img src="https://picsum.photos/id/119/600/400" alt="手工电弧焊焊条" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">手工电弧焊焊条</h3>
+            <p class="text-gray-600 mb-4">
+              适用于各种碳钢、低合金钢的焊接，具有优良的工艺性能和力学性能。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-medium">查看详情</span>
+              <i class="fa fa-arrow-right text-primary group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 产品卡片 2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-custom group">
+          <div class="h-56 overflow-hidden">
+            <img src="https://picsum.photos/id/225/600/400" alt="气体保护焊丝" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">气体保护焊丝</h3>
+            <p class="text-gray-600 mb-4">
+              包括实芯焊丝和药芯焊丝，适用于MIG/MAG、TIG等焊接方法，飞溅小，成型美观。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-medium">查看详情</span>
+              <i class="fa fa-arrow-right text-primary group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 产品卡片 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-custom group">
+          <div class="h-56 overflow-hidden">
+            <img src="https://picsum.photos/id/287/600/400" alt="埋弧焊焊材" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">埋弧焊焊材</h3>
+            <p class="text-gray-600 mb-4">
+              由焊丝和焊剂组成，适用于中厚板的高效焊接，具有高熔敷率和优良的焊接质量。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-medium">查看详情</span>
+              <i class="fa fa-arrow-right text-primary group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#" class="inline-flex items-center px-6 py-3 border border-primary text-primary hover:bg-primary/5 font-medium rounded-lg transition-custom">
+          查看全部产品 <i class="fa fa-long-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我们 -->
+  <section id="about" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+          <img src="https://picsum.photos/id/239/800/600" alt="公司团队" class="rounded-xl shadow-lg max-w-full h-auto object-cover">
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-gray-900 mb-4">关于我们</h2>
+          <p class="text-gray-600 mb-6">
+            我们是一家专业的焊接材料经销商，致力于为客户提供高品质的金桥焊材产品和全方位的技术支持。凭借多年的行业经验和专业的团队，我们已成为众多企业信赖的合作伙伴。
+          </p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary/10 p-2 rounded-lg text-primary">
+                <i class="fa fa-check-circle text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900">正品保障</h3>
+                <p class="text-gray-600">所有产品均为金桥焊材原厂正品，品质保证。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary/10 p-2 rounded-lg text-primary">
+                <i class="fa fa-check-circle text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900">专业服务</h3>
+                <p class="text-gray-600">拥有专业的技术团队，提供焊接工艺咨询和现场技术支持。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary/10 p-2 rounded-lg text-primary">
+                <i class="fa fa-check-circle text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900">快速配送</h3>
+                <p class="text-gray-600">完善的物流体系，确保产品及时送达客户手中。</p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="#contact" class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-custom">
+            联系我们 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="py-16 md:py-24 bg-neutral">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-gray-900 mb-4">联系我们</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          无论您有任何问题或需求，都可以通过以下方式联系我们，我们将竭诚为您服务。
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <div class="bg-white rounded-xl shadow-md p-8 h-full">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">发送消息</h3>
+            <form>
+              <div class="mb-4">
+                <label for="name" class="block text-gray-700 mb-2">姓名</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-custom" placeholder="您的姓名">
+              </div>
+              
+              <div class="mb-4">
+                <label for="email" class="block text-gray-700 mb-2">邮箱</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-custom" placeholder="您的邮箱">
+              </div>
+              
+              <div class="mb-4">
+                <label for="subject" class="block text-gray-700 mb-2">主题</label>
+                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-custom" placeholder="消息主题">
+              </div>
+              
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 mb-2">消息</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-custom" placeholder="请详细描述您的需求..."></textarea>
+              </div>
+              
+              <button type="submit" class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-custom">
+                发送消息
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        <div>
+          <div class="bg-white rounded-xl shadow-md p-8 h-full">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">联系方式</h3>
+            
+            <div class="space-y-6 mb-8">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-primary/10 p-3 rounded-lg text-primary">
+                  <i class="fa fa-map-marker text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-semibold text-gray-900">公司地址</h4>
+                  <p class="text-gray-600">上海市浦东新区金桥路1234号</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-primary/10 p-3 rounded-lg text-primary">
+                  <i class="fa fa-phone text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-semibold text-gray-900">联系电话</h4>
+                  <p class="text-gray-600">021-12345678</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-primary/10 p-3 rounded-lg text-primary">
+                  <i class="fa fa-envelope text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-semibold text-gray-900">电子邮箱</h4>
+                  <p class="text-gray-600">info@jinqiaowelding.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-primary/10 p-3 rounded-lg text-primary">
+                  <i class="fa fa-clock-o text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-semibold text-gray-900">营业时间</h4>
+                  <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h4 class="text-lg font-semibold text-gray-900 mb-4">关注我们</h4>
+              <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-custom">
+                  <i class="fa fa-weixin"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-custom">
+                  <i class="fa fa-weibo"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-custom">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="text-white text-3xl"><i class="fa fa-welding-bridge"></i></span>
+            <span class="text-xl font-bold text-white">金桥焊材</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            专业的焊接材料经销商，提供高品质的产品和全方位的技术支持。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-custom">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-custom">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-custom">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-gray-400 hover:text-white transition-custom">首页</a></li>
+            <li><a href="#products" class="text-gray-400 hover:text-white transition-custom">产品中心</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-custom">关于我们</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-custom">联系我们</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">产品分类</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-custom">手工电弧焊焊条</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-custom">气体保护焊丝</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-custom">埋弧焊焊材</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-custom">特种焊材</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">联系我们</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-gray-400 mt-1 mr-3"></i>
+              <span class="text-gray-400">上海市浦东新区金桥路1234号</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-phone text-gray-400 mt-1 mr-3"></i>
+              <span class="text-gray-400">021-12345678</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-envelope text-gray-400 mt-1 mr-3"></i>
+              <span class="text-gray-400">info@jinqiaowelding.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 mb-4 md:mb-0">
+            &copy; 2023 金桥焊材经销商. 保留所有权利.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-500 hover:text-white transition-custom">隐私政策</a>
+            <a href="#" class="text-gray-500 hover:text-white transition-custom">服务条款</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('py-2', 'shadow');
+        navbar.classList.remove('py-4');
+      } else {
+        navbar.classList.add('py-4');
+        navbar.classList.remove('py-2', 'shadow');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (menuToggle.querySelector('i').classList.contains('fa-bars')) {
+        menuToggle.querySelector('i').classList.remove('fa-bars');
+        menuToggle.querySelector('i').classList.add('fa-times');
+      } else {
+        menuToggle.querySelector('i').classList.remove('fa-times');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // 关闭移动菜单（如果打开）
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+          }
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
